@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: .12rem;
+}
+@mixin sum($w,$h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($j:space-between) {
+  display: flex;
+  justify-content:$j;//space-around
+  align-items: center;
+}
+
+@mixin cen($w) {
+  width: $w;
+  height: $w;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+html, body,.wrap{
+  @include sum(100%,100% )
+}
+.wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  @include sum(100%,.5rem);
+  @include flex();
+  padding: 0 .1rem;
+  border-bottom: 1px solid #ccc;
+
+  .userImg{
+    @include cen(.4rem);
+    background: pink;
+    cursor: pointer;
+  }
+  
+  .header-nav{
+    @include sum(70%,.5rem);
+    // background: pink;
+    overflow: hidden;
+    ul{
+      @include sum(110%,.5rem);
+      @include flex();
+      li{
+        font-size: .18rem;
+        color: #aaa;
+        cursor: pointer;
+      }
+    }
+  }
+
+  span {
+    cursor: pointer;
+    i{
+      font-size: .26rem;
+    }
+  }
+}
+
+.section{
+  flex:1;
+  overflow-y:auto ;
+
+  .banner{
+    @include sum(100%,1.3rem);
+    background: cornflowerblue;
+    text-align: center;
+    line-height: 1.3rem;
+    h3{
+      font-size: .3rem;
+    }
+  }
+
+  .list{
+    @include sum(100%,auto);
+    dl{
+      @include sum(100%,1rem);
+      border-bottom: 1px solid #aaa;
+      dd{
+
+      }
+    }
+  }
+}
+
+.footer{
+  @include sum(100%,.5rem);
+  @include flex(space-around);
+  padding: 0 .1rem;
+  border-top: 1px solid #ccc;
+}
